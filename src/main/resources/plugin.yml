@@ -1,0 +1,4 @@
+name: MazagaoStats
+version: '${project.version}'
+main: org.jungles.mazagaostats.MazagaoStats
+api-version: '1.20'
