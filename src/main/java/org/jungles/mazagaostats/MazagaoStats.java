@@ -1,6 +1,7 @@
 package org.jungles.mazagaostats;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jungles.mazagaostats.listeners.ActionsListeners;
 import org.jungles.mazagaostats.producers.RabbitMQ;
 
 public final class MazagaoStats extends JavaPlugin {
@@ -12,6 +13,7 @@ public final class MazagaoStats extends JavaPlugin {
         ConfigManager configManager = ConfigManager.getInstance();
         configManager.setup(this);
         rabbitMQ = RabbitMQ.getInstance();
+        getServer().getPluginManager().registerEvents( new ActionsListeners(), this);
     }
 
     @Override
