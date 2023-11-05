@@ -3,6 +3,8 @@ package org.jungles.mazagaostats.producers;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.jungles.mazagaostats.ConfigManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,20 +12,19 @@ import java.util.List;
 public class RabbitMQ {
 
     static private RabbitMQ rabbitMQ;
-    final private String host = "192.168.1.90";
-    final private String user = "minecraftServer";
-    final private String password = "root";
-
     private final List<Channel> channels = new ArrayList<>();
     private Connection connection;
 
 
     private RabbitMQ(){
         ConnectionFactory factory = new ConnectionFactory();
+        ConfigManager configManager = ConfigManager.getInstance();
+        FileConfiguration config = configManager.getConfig();
 
-        factory.setHost(host);
-        factory.setUsername(user);
-        factory.setPassword(password);
+
+        factory.setHost(config.getString("settings.rabbitmq.host"));
+        factory.setUsername(config.getString("settings.rabbitmq.username"));
+        factory.setPassword(config.getString("settings.rabbitmq.password"));
 
         try {
             this.connection = factory.newConnection();

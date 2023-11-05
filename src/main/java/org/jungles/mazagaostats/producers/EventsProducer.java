@@ -9,8 +9,8 @@ import java.io.IOException;
 
 public class EventsProducer {
 
-    private String queueName = "events";
-    private RabbitMQ rabbitMQ = RabbitMQ.getInstance();
+    private final String queueName = "events";
+    private final RabbitMQ rabbitMQ = RabbitMQ.getInstance();
     private static EventsProducer eventsProducer;
     private Channel channel;
 
@@ -54,10 +54,4 @@ public class EventsProducer {
             System.out.println("Algo deu errado no envio da mensagem: " + e.getMessage());
         }
     }
-
-
-
-
-
-
 }

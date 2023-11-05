@@ -75,10 +75,5 @@
             <artifactId>amqp-client</artifactId>
             <version>5.11.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.jungles</groupId>
-            <artifactId>MazagaoStats</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 </project>
